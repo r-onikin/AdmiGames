@@ -76,6 +76,11 @@ class SoftwaresController extends Controller
         // バリデーション
         $request->validate([
             'title' => 'required|max:255',
+            'developer_id' => 'required',
+            'distributor_id' => 'required',
+            'platform' => 'required',
+            'released_day' => 'required',
+            'played_day' => 'required',
         ]);
 
         // dd($request);
@@ -148,6 +153,16 @@ class SoftwaresController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'title' => 'required|max:255',
+            'developer_id' => 'required',
+            'distributor_id' => 'required',
+            'platform' => 'required',
+            'released_day' => 'required',
+            'played_day' => 'required',
+        ]);
+
         // idの値でsoftwareを検索して取得
         $software =  Software::findOrFail($id);
 
